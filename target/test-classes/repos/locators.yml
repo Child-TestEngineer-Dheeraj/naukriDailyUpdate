@@ -1,0 +1,5 @@
+Login:
+	username: //form[@class='form']/descendant::input[@type='text']
+	password: //form[@class='form']/descendant::input[@type='password']
+	loginBtn: 
+ 
