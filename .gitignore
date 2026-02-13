@@ -1,0 +1,10 @@
+# Maven build
+target/
+
+# TestNG / JUnit reports
+test-output/
+
+# Eclipse / IDE
+.classpath
+.project
+.settings/
