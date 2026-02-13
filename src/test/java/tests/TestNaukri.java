@@ -1,4 +1,4 @@
-package core;
+package tests;
 
 import java.time.Duration;
 
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class base {
+public class TestNaukri {
 	protected static WebDriver driver;
 
 	@BeforeTest
@@ -33,20 +33,21 @@ public class base {
 		driver.findElement(By.xpath("//form[@class='form']/descendant::input[@type='password']")).sendKeys("Draj@007");
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='nI-gNb-drawer__icon']/div"))));	
+		wait.until(ExpectedConditions
+				.visibilityOf(driver.findElement(By.xpath("//div[@class='nI-gNb-drawer__icon']/div"))));
 	}
-	
+
 	@Test(priority = 2)
 	public void UploadResume() throws InterruptedException {
 		driver.findElement(By.xpath("//div[@class='nI-gNb-drawer__icon']/div")).click();
 		driver.findElement(By.linkText("View & Update Profile")).click();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.linkText("Credits"))));
-		driver.findElement(By.xpath("//div[@class='action']/descendant::input[@type='file' and @id='attachCV']")).sendKeys("C:\\Users\\dheer\\Desktop\\Resume\\DheerajShet_QA_Automation_4.5YoE.docx");
-	   Thread.sleep(5000);	
+		driver.findElement(By.xpath("//div[@class='action']/descendant::input[@type='file' and @id='attachCV']"))
+				.sendKeys("C:\\Users\\dheer\\Desktop\\Resume\\DheerajShet_QA_Automation_4.5YoE.docx");
+		Thread.sleep(5000);
 	}
-	
-	
+
 	@Test(priority = 3)
 	public void Logout() {
 		driver.findElement(By.xpath("//div[@class='nI-gNb-drawer__icon']/div")).click();
